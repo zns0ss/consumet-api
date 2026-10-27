@@ -20,13 +20,15 @@ app.get('/anime/gogoanime/search', async (req, res) => {
     });
     const $ = cheerio.load(r.data);
     const results = [];
-    $('ul.items li').each((i, el) => {
-      const title = $(el).find('p.name a').text().trim();
-      const id = $(el).find('p.name a').attr('href')?.replace('/category/', '').trim();
-      const image = $(el).find('img').attr('src');
-      if (title) results.push({ id, title, image });
+
+    // tenta vários seletores possíveis
+    const seletores = ['ul.items li', '.anime_list_body li', '.last_episodes li', 'article', '.video-block'];
+    let achou = '';
+    seletores.forEach(s => {
+      if ($(s).length > 0) achou += s + '=' + $(s).length + ' | ';
     });
-    res.json({ results });
+
+    res.json({ debug: achou, html_sample: r.data.slice(0, 2000), results });
   } catch(e) {
     res.status(500).json({ error: e.message });
   }
