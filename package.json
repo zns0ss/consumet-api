@@ -6,7 +6,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@consumet/extensions": "latest",
+    "@consumet/extensions": "2.2.3",
     "express": "^4.18.2",
     "cors": "^2.8.5"
   }
