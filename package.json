@@ -1,13 +1,13 @@
 {
   "name": "consumet-api",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "@consumet/extensions": "2.2.3",
     "express": "^4.18.2",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0"
   }
 }
