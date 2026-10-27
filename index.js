@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-import { ANIME } from '@consumet/extensions';
+import pkg from '@consumet/extensions';
 
+const { ANIME } = pkg;
 const app = express();
 const PORT = process.env.PORT || 3000;
 
